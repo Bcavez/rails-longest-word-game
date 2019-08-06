@@ -1,0 +1,12 @@
+<h1>New Game</h1>
+<% @letters.each do |letter| %>
+  <p class="btn btn-primary"> <%= letter %></p>
+<% end %>
+<form action="/score" class="form-group">
+  <label for="answer">Longest Word?</label>
+  <input type="text" id="answer" name="answer">
+  <!-- <input id="token" name="token" type="hidden" value="<%= @letters.join(",") %>" /> -->
+  <%= hidden_field_tag "token", @letters %>
+  <input type="submit" value="Send!">
+</form>
+<p><%= link_to "Play again", new_path %></p>
